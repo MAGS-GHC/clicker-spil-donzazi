@@ -2,6 +2,8 @@
 
 let cookies = 0;
 let cookiesPerClick = 1;
+let cookiesPerSecond = 0;
+let bakerPrice = 20;
 
 // - Everytime we want the cookies to go up by one, we use a shorthand which is "cookies += 1", because that is our variable.
 
@@ -27,12 +29,15 @@ function bakeCookie() {
 // - The more time we click on the "Hire a Baker"-input-button the more it goes up by our upgraded value. So if we click the "Hire a Baker"-input-button 1 time, it goes up by 1, if we do it again, it goes up by 2 etc.. because it's getting upgraded by 1 everytime.
 
 function hireBaker() {
-  if (cookies >= 20) {
+  if (cookies >= bakerPrice) {
     cookiesPerClick += 1;
-    cookies -= 20;
+    cookies -= bakerPrice;
+    bakerPrice = Math.round(bakerPrice * 1.1);
     document.getElementById("cookie-text").innerHTML = "Cookies: " + cookies;
+    document.getElementById("bakerPriceText").innerHTML =
+      "Baker Price now:  " + bakerPrice + " cookies!";
   } else {
-    alert("Your cookies are running low, kind sir!");
+    alert("You don't have enough cookies for this upgrade!");
   }
 }
 
@@ -44,3 +49,24 @@ function hireBaker() {
 // - "If" we have less than 20-cookies, we then use an "Else-statement" and give an "alert"-message, where we tell the user, that they can't buy a Baker.
 
 // - Now we have to update our cookies immediately, so that everytime we buy a Baker and we spend 20 cookies on it, the cost will be shown and deducted. So we are going to copy "document.getElementById("cookie-text").innerHTML = "Cookies: " + cookies;" from our first function and paste it in our second function. What this i doing is it's accessing the document-Id which is "cookie-text" and changing the ".innerHTML" to "Cookies" + the variable "cookies".
+
+// - To challenge the user when they buy upgrades in the game (like the baker), we want to set the price to exponentiel growth. That means that the first time it cost 20 cookies, but the next time it costs more and more etc.. To do so, we use the "bakerPrice *=1.1", so instead of it goes up linear, it goes up exponentiel with .10% everytime. But this gives us a lot of decimals, and to remove that, we use the Math.round function.
+
+function hireAutoBaker() {
+  if (cookies >= 50) {
+    cookies -= 50;
+    cookiesPerSecond += 1;
+    document.getElementById("cookie-text").innerHTML = "Cookies: " + cookies;
+  } else {
+    alert("You don't have enough cookies for this upgrade!");
+  }
+}
+
+setInterval(function () {
+  cookies += cookiesPerSecond;
+  document.getElementById("cookie-text").innerHTML = "Cookies: " + cookies;
+}, 1000);
+
+// "setInterval" is an intergrated function in Javascript.
+// The "setInterval" function tells the script to run whatever that's inside the curly-brackets ({}) every 1000 millisecond.
+// The "cookies += 1;" means that the amount of cookies we have will +=1 every second.

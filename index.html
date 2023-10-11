@@ -11,8 +11,27 @@
 
   <body>
     <h1>Cookie Clicker</h1>
-    <p id="cookie-text">Coockies - 0</p>
-    <input type="button" value="Bake a Cookie" onclick="bakeCookie()" />
-    <input type="button" value="Hire a Baker" onclick="hireBaker()" />
+    <p id="cookie-text">Cookies: 0</p>
+    <input
+      class="Upgrade"
+      type="button"
+      value="Bake a Cookie"
+      onclick="bakeCookie()"
+    />
+
+    <p id="bakerPriceText"></p>
+    <input
+      type="button"
+      value="Hire a Baker for 20 cookies"
+      onclick="hireBaker()"
+    />
+
+    <p></p>
+    <input
+      class="Upgrade"
+      type="button"
+      value="Hire an Auto Baker"
+      onclick="hireAutoBaker()"
+    />
   </body>
 </html>
