@@ -1,8 +1,7 @@
 //We start with a variable by the name "cookies" set to the value "0", because that is what we start with.
 
-let banan = 0;
-let købtMonkey = False;
-let antalMonkey = 0;
+let cookies = 0;
+let cookiesPerClick = 1;
 
 // - Everytime we want the cookies to go up by one, we use a shorthand which is "cookies += 1", because that is our variable.
 
@@ -10,16 +9,9 @@ let antalMonkey = 0;
 
 // - Then we use the ".innerHTML" to get what's inside the opening-and-closing html tags, which is "Cookies: 0" and we add (+) the variable at the end, because that is what's going up by 1 everytime we click on the "button".
 
-function minfunktion() {
-  banan += 1;
-  if (købtMonkey) {
-    banan += antalMonkey;
-  }
-  if (banan === 1) {
-    document.getElementById("demo").innerHTML = banan + " banan";
-  } else {
-    document.getElementById("demo").innerHTML = banan + " bananer";
-  }
+function bakeCookie() {
+  cookies += cookiesPerClick;
+  document.getElementById("cookie-text").innerHTML = "Cookies: " + cookies;
 }
 
 // - Now we want to add an "upgrade" to our cookie-clicker-game. We add a "baker" as an upgrade, so now everytime u click, it goes up by 2 instead of 1.
@@ -34,15 +26,11 @@ function minfunktion() {
 
 // - The more time we click on the "Hire a Baker"-input-button the more it goes up by our upgraded value. So if we click the "Hire a Baker"-input-button 1 time, it goes up by 1, if we do it again, it goes up by 2 etc.. because it's getting upgraded by 1 everytime.
 
-let monkeycost = 10;
-let monkey = 0;
-
-function buyMonkey() {
-  if (banan >= monkeycost) {
-    banan = banan - monkeycost;
-    købtMonkey = true;
-    antalMonkey++;
-    document.getElementById("demo").innerHTML = banan + " bananer";
+function hireBaker() {
+  if (cookies >= 20) {
+    cookiesPerClick += 1;
+    cookies -= 20;
+    document.getElementById("cookie-text").innerHTML = "Cookies: " + cookies;
   } else {
     alert("Your cookies are running low, kind sir!");
   }
