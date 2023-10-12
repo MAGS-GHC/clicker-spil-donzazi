@@ -1,62 +1,74 @@
-let banan = 0;
-let havemonkey = false;
-let numberofmonkeys = 0;
+let numberOfBananas = 0;
+let boughtMonkey = false;
+let numberOfMonkeys = 0;
 
 function minFunktion() {
-  banan += 1;
-  if (havemonkey) {
-    banan += numberofmonkeys;
+  numberOfBananas += 1;
+  if (boughtMonkey) {
+    numberOfBananas += numberOfMonkeys;
   }
-  if (banan === 1) {
-    document.getElementById("demo").innerHTML = banan + " banan";
+  if (numberOfBananas === 1) {
+    document.getElementById("demo").innerHTML = "Bananer = " + numberOfBananas;
   } else {
-    document.getElementById("demo").innerHTML = banan + " bananer";
+    document.getElementById("demo").innerHTML = "Bananer = " + numberOfBananas;
   }
 }
+
 let monkeycost = 10;
 let yourMonkeys = 0;
 
 function buyMonkey() {
-  if (banan >= monkeycost) {
-    banan = banan - monkeycost;
-    havemonkey = true;
-    numberofmonkeys++;
+  if (numberOfBananas >= monkeycost) {
+    numberOfBananas = numberOfBananas - monkeycost;
+    boughtMonkey = true;
+    numberOfMonkeys++;
     monkeycost *= 2;
     yourMonkeys++;
-    document.getElementById("demo").innerHTML = banan + " bananer";
-    document.getElementById("yourmonkeys").innerHTML =
+    document.getElementById("demo").innerHTML = "Bananer = " + numberOfBananas;
+    document.getElementById("yourMonkeys").innerHTML =
       "You have: " + yourMonkeys + " Monkey-Upgrade(s)";
+    document.getElementById("abe-pris").innerHTML =
+      "Monkey-Upgrade Costs Now = " + monkeycost;
     alert("Well Done! Your Upgrade Has Been Purchased!");
   } else {
     alert("You are runnning low on bananas, get more bananas to upgrade me!!");
   }
 }
 
-let autoClicker = 20;
-let clickPerSecond = 0;
-let yourautoclicker = 0;
+let autoClickerPrice = 20;
+let clicksPerSecond = 0;
+let boughtAutoClicker = 0;
 
 function buyAutoclicker() {
-  if (banan >= autoClicker) {
-    banan = banan - autoClicker;
-    clickPerSecond += 1;
-    autoClicker *= 2;
-    yourautoclicker++;
-    document.getElementById("demo").innerHTML = banan + " bananer";
+  if (numberOfBananas >= autoClickerPrice) {
+    numberOfBananas = numberOfBananas - autoClickerPrice;
+    clicksPerSecond += 1;
+    autoClickerPrice *= 2;
+    boughtAutoClicker++;
+    document.getElementById("demo").innerHTML = "Bananer = " + numberOfBananas;
+
+    document.getElementById("yourautoclicker").innerHTML =
+      "Your autoclicker is level: " + boughtAutoClicker + "/5";
+
+    document.getElementById("autoclicker-pris").innerHTML =
+      "Auto-Clicker-Upgrade Costs Now = " + autoClickerPrice;
+
+    alert("Well Done! Your Upgrade Has Been Purchased!");
+  } else {
+    alert("You are runnning low on bananas, get more bananas to upgrade me!!");
   }
 }
 
-function buyAutoclicker() {
-  autoClicker;
-  document.getElementById("yourautoclicker").innerHTML =
-    "Your autoclicker is level: " + yourautoclicker + "/5";
-  alert("Well Done! Your Upgrade Has Been Purchased!");
-}
-
 setInterval(function () {
-  banan += clickPerSecond;
-  banan1 += clickPerSecond;
-  document.getElementById("demo").innerHTML = banan + " bananer";
+  if (boughtAutoClicker) {
+    numberOfBananas += clicksPerSecond;
+    banan1 += clicksPerSecond;
+    if (boughtAutoClicker === 1) {
+      document.getElementById("demo").innerHTML;
+    } else {
+      document.getElementById("demo").innerHTML;
+    }
+  }
 }, 1000);
 
 let highScore = 0;
@@ -64,13 +76,13 @@ let banan1 = 0;
 
 function minFunktion2() {
   banan1 += 1;
-  if (havemonkey) {
-    banan1 += numberofmonkeys;
+  if (boughtMonkey) {
+    banan1 += numberOfMonkeys;
   }
 }
 
 function highscore() {
   highScore = banan1;
-  document.getElementById("highscore").innerHTML =
+  document.getElementById("highScore").innerHTML =
     "Total Bananas so far: " + highScore;
 }
