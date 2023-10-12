@@ -13,10 +13,8 @@ function minFunktion() {
     document.getElementById("demo").innerHTML = banan + " bananer";
   }
 }
-
 let monkeycost = 10;
 let yourMonkeys = 0;
-
 function buyMonkey() {
   if (banan >= monkeycost) {
     banan = banan - monkeycost;
@@ -39,15 +37,14 @@ let autoClicker = 20;
 let clickPerSecond = 0;
 let yourautoclicker = 0;
 
-function buyAutoclicker() {
+function buyAutoclicker() 
   if (banan >= autoClicker) {
     banan = banan - autoClicker;
     clickPerSecond += 1;
     autoClicker *= 2;
     yourautoclicker++;
     document.getElementById("demo").innerHTML = banan + " bananer";
-    document.getElementById("autoclicker").innerHTML =
-      "Well done! You now have the Auto-Clicker Upgrade! Next Upgrade costs: " +
+     function buyAutoclicker() {
       autoClicker;
     document.getElementById("yourautoclicker").innerHTML =
       "Your autoclicker is level: " + yourautoclicker + "/5";
