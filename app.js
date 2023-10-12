@@ -15,6 +15,7 @@ function minFunktion() {
 }
 let monkeycost = 10;
 let yourMonkeys = 0;
+
 function buyMonkey() {
   if (banan >= monkeycost) {
     banan = banan - monkeycost;
@@ -23,8 +24,6 @@ function buyMonkey() {
     monkeycost *= 2;
     yourMonkeys++;
     document.getElementById("demo").innerHTML = banan + " bananer";
-    document.getElementById("abe-pris").innerHTML =
-      "Monkey-Upgrade price is now: " + monkeycost;
     document.getElementById("yourmonkeys").innerHTML =
       "You have: " + yourMonkeys + " Monkey-Upgrade(s)";
     alert("Well Done! Your Upgrade Has Been Purchased!");
@@ -37,21 +36,21 @@ let autoClicker = 20;
 let clickPerSecond = 0;
 let yourautoclicker = 0;
 
-function buyAutoclicker() 
+function buyAutoclicker() {
   if (banan >= autoClicker) {
     banan = banan - autoClicker;
     clickPerSecond += 1;
     autoClicker *= 2;
     yourautoclicker++;
     document.getElementById("demo").innerHTML = banan + " bananer";
-     function buyAutoclicker() {
-      autoClicker;
-    document.getElementById("yourautoclicker").innerHTML =
-      "Your autoclicker is level: " + yourautoclicker + "/5";
-    alert("Well Done! Your Upgrade Has Been Purchased!");
-  } else {
-    alert("You are runnning low on bananas, get more bananas to upgrade me!!");
   }
+}
+
+function buyAutoclicker() {
+  autoClicker;
+  document.getElementById("yourautoclicker").innerHTML =
+    "Your autoclicker is level: " + yourautoclicker + "/5";
+  alert("Well Done! Your Upgrade Has Been Purchased!");
 }
 
 setInterval(function () {
