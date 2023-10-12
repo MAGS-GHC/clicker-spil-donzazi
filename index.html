@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bananaa Clicker!</title>
+    <title>Banana Clicker!</title>
     <script src="app.js"></script>
+    <link
+      rel="icon"
+      type="image/png"
+      size="32x32"
+      href="pictures/Banan cartoon.png" />
   </head>
   <body>
     <h1>Banana Clicker!</h1>
@@ -18,8 +23,7 @@
         title="Banana-points"
         height="150px"
         width="150px"
-        onclick="minFunktion()"
-      />
+        onclick="minFunktion() + minFunktion2() + highscore()" />
     </figure>
 
     <br />
@@ -33,9 +37,7 @@
         title="Monkey-upgrade"
         height="150px"
         width="150px"
-        onclick="buyMonkey()"
-      />
-      <figcaption>Click on me!</figcaption>
+        onclick="buyMonkey()" />
     </figure>
 
     <br />
@@ -52,12 +54,11 @@
         title="Autoclicker Upgrade"
         width="150"
         height="150"
-        onclick="buyAutoclicker()"
-      />
+        onclick="buyAutoclicker()" />
     </figure>
 
     <br />
 
-    <p id="highscore">Your <strong>Highscore</strong> is:</p>
+    <p id="highscore">Total Bananas so far:</p>
   </body>
 </html>
