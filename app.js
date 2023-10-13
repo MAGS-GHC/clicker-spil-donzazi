@@ -3,21 +3,17 @@ let boughtMonkey = false;
 let numberOfMonkeys = 0;
 
 function minFunktion() {
+  //viser hvor mange bananer man har.
   numberOfBananas += 1;
-  if (boughtMonkey) {
-    numberOfBananas += numberOfMonkeys;
-  }
-  if (numberOfBananas === 1) {
-    document.getElementById("demo").innerHTML = "Bananer = " + numberOfBananas;
-  } else {
-    document.getElementById("demo").innerHTML = "Bananer = " + numberOfBananas;
-  }
+  numberOfBananas += numberOfMonkeys;
+  document.getElementById("demo").innerHTML = "Bananer = " + numberOfBananas;
 }
 
 let monkeycost = 10;
 let yourMonkeys = 0;
 
 function buyMonkey() {
+  //viser om man har købt "Monkey-Upgrade" og hvor mange af dem man har.
   if (numberOfBananas >= monkeycost) {
     numberOfBananas = numberOfBananas - monkeycost;
     boughtMonkey = true;
@@ -36,19 +32,19 @@ function buyMonkey() {
 }
 
 let autoClickerPrice = 20;
-let clicksPerSecond = 0;
+let bananasPerSecond = 0;
 let boughtAutoClicker = 0;
 
 function buyAutoclicker() {
   if (numberOfBananas >= autoClickerPrice) {
     numberOfBananas = numberOfBananas - autoClickerPrice;
-    clicksPerSecond += 1;
+    bananasPerSecond += 1;
     autoClickerPrice *= 2;
     boughtAutoClicker++;
     document.getElementById("demo").innerHTML = "Bananer = " + numberOfBananas;
 
     document.getElementById("yourautoclicker").innerHTML =
-      "Your autoclicker is level: " + boughtAutoClicker + "/5";
+      "Your autoclicker is level: " + boughtAutoClicker;
 
     document.getElementById("autoclicker-pris").innerHTML =
       "Auto-Clicker-Upgrade Costs Now = " + autoClickerPrice;
@@ -60,13 +56,15 @@ function buyAutoclicker() {
 }
 
 setInterval(function () {
+  //denne her interval skal kun aktiveres, hvis Auto-Clicker-Upgrade er købt.
   if (boughtAutoClicker) {
-    numberOfBananas += clicksPerSecond;
-    banan1 += clicksPerSecond;
+    numberOfBananas += bananasPerSecond;
+    banan1 += bananasPerSecond;
     if (boughtAutoClicker === 1) {
-      document.getElementById("demo").innerHTML;
+      document.getElementById("demo").innerHTML =
+        "Bananer = " + numberOfBananas;
     } else {
-      document.getElementById("demo").innerHTML;
+      document.getElementById("demo").innerHTML = numberOfBananas;
     }
   }
 }, 1000);
